@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <span>My Angular App</span>
+  
+    <span class="spacer"></span>
+  
+    <button mat-button routerLink="/dashboard">Dashboard</button>
+    
+    <button *ngIf="isAdmin" mat-button routerLink="/user-management">User Management</button>
+
+    <button *ngIf="isViewer || isEditor" mat-button routerLink="/books-list">List</button>
+
+    <button *ngIf="isEditor" mat-button routerLink="/text-editor">Create New</button>
+  
+    <button mat-button (click)="logout()">Logout</button>
+  </mat-toolbar>
+  

@@ -11,13 +11,29 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AuthInterceptor } from './auth.interceptor';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserManagementComponent } from './components/user-management/user-management.component';
+import { TextEditorComponent } from './components/text-editor/text-editor.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { QuillModule } from 'ngx-quill';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { BooksListComponent } from './components/books-list/books-list.component';
+import { MatListModule } from '@angular/material/list';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    NavbarComponent,
+    UserManagementComponent,
+    TextEditorComponent,
+    BooksListComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +46,16 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule,
+    MatListModule,
+    MatProgressBarModule,
+    NgChartsModule,
+    QuillModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
