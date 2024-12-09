@@ -17,6 +17,10 @@
             Password is required
           </mat-error>
         </mat-form-field>
+
+        <div *ngIf="errorMessage" class="error-message">
+            <mat-error>{{ errorMessage }}</mat-error>
+          </div>
   
         <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
       </form>

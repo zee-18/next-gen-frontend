@@ -1,14 +1,4 @@
-<mat-toolbar color="primary">
-  My Angular App
-</mat-toolbar>
 
-<!-- <div style="margin: 20px;">
-  <mat-form-field appearance="fill">
-    <mat-label>Enter your name</mat-label>
-    <input matInput placeholder="Name">
-  </mat-form-field>
+<app-navbar *ngIf="!isLoginPage"></app-navbar>
+<router-outlet></router-outlet>
 
-  <button mat-raised-button color="accent">Click Me</button>
-  
-</div> -->
-<app-login></app-login>

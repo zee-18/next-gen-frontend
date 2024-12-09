@@ -1,0 +1,21 @@
+<div style="padding: 20px;">
+    <h2>Book List</h2>
+    <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+    <mat-list *ngIf="!isLoading && books.length > 0">
+        <mat-list-item *ngFor="let book of books">
+          <div class="book-item">
+            <span class="book-title">{{ book.title }}</span>
+            <button
+              *ngIf="userRole === 'editor'"
+              mat-raised-button
+              color="primary"
+              (click)="editBook(book)"
+            >
+              Edit
+            </button>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    <p *ngIf="!isLoading && books.length === 0">No books available.</p>
+  </div>
+  

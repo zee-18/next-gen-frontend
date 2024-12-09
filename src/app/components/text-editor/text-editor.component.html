@@ -1,0 +1,13 @@
+<div style="padding: 20px;">
+    <mat-form-field appearance="fill" style="width: 80%;">
+        <mat-label>Book Title</mat-label>
+        <input matInput placeholder="Enter title" [(ngModel)]="title" />
+    </mat-form-field>
+
+    <quill-editor #quillEditor [(ngModel)]="content" (textChange)="onTextChange($event)" (onEditorCreated)="onEditorCreated($event)">
+    </quill-editor>
+</div>
+<div style="padding: 20px; display: flex; gap: 10px;">
+    <button mat-raised-button color="accent" (click)="getSuggestions()">Get Suggestions</button>
+    <button mat-raised-button color="primary" (click)="saveContent()">Save</button>
+</div>
